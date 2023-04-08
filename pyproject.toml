@@ -8,8 +8,51 @@ readme      = "README.md"
 packages    = [{ include = "poetry_plugin_taskipy" }]
 
 [tool.poetry.dependencies]
-python = "^3.7"
-poetry = "1.4.2"
+python  = "^3.7"
+poetry  = "1.4.2"
+taskipy = "^1.10.4"
+
+[tool.poetry.group.lint.dependencies]
+black            = "^23.3.0"
+isort            = { version = "^5.12", python = "^3.8" }
+flake8           = { version = "^6", python = "^3.8.1" }
+flake8-pyproject = "^1.2.3"
+autoflake        = "^2.0.2"
+mypy             = "^1.2.0"
+
+[tool.taskipy.tasks]
+lint = """
+task lint_format \
+&& task lint_analyze \
+&& task lint_types
+"""
+lint_format = """
+black {module_dir} {tests_dir} \
+&& isort {module_dir} {tests_dir} \
+&& autoflake --recursive --in-place --remove-all-unused-imports \
+    --remove-unused-variables {module_dir} {tests_dir}
+"""
+lint_analyze = "flake8 {module_dir} {tests_dir}"
+lint_types = "mypy {module_dir} {tests_dir}"
+
+[tool.taskipy.settings]
+use_vars = true
+
+[tool.taskipy.variables]
+module_dir = "poetry_plugin_taskipy"
+tests_dir  = "tests"
+
+[tool.isort]
+profile = "black"
+
+[tool.flake8]
+max-line-length = 88
+
+[tool.poetry.extras]
+plugin = ["poetry"]
+
+[tool.poetry.plugins."poetry.application.plugin"]
+taskipy = "poetry_plugin_taskipy.plugin:TaskipyPlugin"
 
 [build-system]
 requires      = ["poetry-core"]
