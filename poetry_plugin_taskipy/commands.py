@@ -19,13 +19,12 @@ class TaskipyCommand(Command):
     ]
 
     def handle(self) -> int:
-        command = ""
+        args = []
 
         if self.argument("name"):
-            command += self.argument("name")
+            args.append(self.argument("name"))
 
         if self.argument("args"):
-            command += " "
-            command += " ".join(self.argument("args"))
+            args.extend(self.argument("args"))
 
-        return taskipy.run(command)
+        return taskipy.run(args)
