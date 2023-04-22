@@ -10,7 +10,7 @@ packages    = [{ include = "poetry_plugin_taskipy" }]
 [tool.poetry.dependencies]
 python  = "^3.7"
 poetry  = "^1.4.2"
-taskipy = "^1.10.4"
+taskipy = { git = "https://github.com/taskipy/taskipy.git", branch = "feature/gh-32/add-poetry-plugin" }
 
 [tool.poetry.group.test.dependencies]
 pytest = "^7.3.1"
