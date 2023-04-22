@@ -1,0 +1,26 @@
+name: Lint
+
+on: [push, pull_request]
+
+jobs:
+  run-linters:
+    name: Run the project linters
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
+
+      - name: Install poetry
+        run: pipx install poetry
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: 'poetry'
+
+      - name: Install dependencies
+        run: poetry install
+
+      - name: Run linters
+        run: poetry run task lint
