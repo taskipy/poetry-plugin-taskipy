@@ -9,8 +9,12 @@ packages    = [{ include = "poetry_plugin_taskipy" }]
 
 [tool.poetry.dependencies]
 python  = "^3.7"
-poetry  = "1.4.2"
+poetry  = "^1.4.2"
 taskipy = "^1.10.4"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.3.1"
+pytest-cov = "^4.0.0"
 
 [tool.poetry.group.lint.dependencies]
 black            = "^23.3.0"
@@ -47,9 +51,6 @@ profile = "black"
 
 [tool.flake8]
 max-line-length = 88
-
-[tool.poetry.extras]
-plugin = ["poetry"]
 
 [tool.poetry.plugins."poetry.application.plugin"]
 taskipy = "poetry_plugin_taskipy.plugin:TaskipyPlugin"
