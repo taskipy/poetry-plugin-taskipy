@@ -25,6 +25,7 @@ autoflake        = "^2.0.2"
 mypy             = "^1.2.0"
 
 [tool.taskipy.tasks]
+test = "pytest --cov=poetry_plugin_taskipy --cov-report=term-missing {tests_dir}"
 lint = """
 task lint_format \
 && task lint_analyze \
