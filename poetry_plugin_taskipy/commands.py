@@ -1,6 +1,8 @@
-import taskipy
+import pathlib
+
 from cleo.commands.command import Command
 from cleo.helpers import argument, option
+from taskipy import cli as taskipy_cli
 
 
 class TaskipyCommand(Command):
@@ -21,13 +23,17 @@ class TaskipyCommand(Command):
     def handle(self) -> int:
         arguments = []
 
+        cwd = pathlib.Path.cwd()
+        if self.option("directory"):
+            cwd = pathlib.Path(self.option("directory")).resolve()
+
+        if self.option("list"):
+            arguments.append("--list")
+
         if self.argument("name"):
             arguments.append(self.argument("name"))
 
         if self.argument("args"):
             arguments.extend(self.argument("args"))
 
-        if self.option("list"):
-            arguments.append("--list")
-
-        return taskipy.run(arguments)
+        return taskipy_cli.run(arguments, cwd=cwd)
