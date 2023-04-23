@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   lint-and-test:
-    name: Run the project linters
+    name: Run linters and the test suite
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
