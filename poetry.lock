@@ -1586,7 +1586,7 @@ tomli = {version = "^2.0.1", markers = "python_version >= \"3.7\" and python_ver
 type = "git"
 url = "https://github.com/taskipy/taskipy.git"
 reference = "feature/gh-32/add-poetry-plugin"
-resolved_reference = "e035591af866f91a4e2c47d8245b280fa2151589"
+resolved_reference = "c6b73904b1301dc10b40d388dea438267e8f9d90"
 
 [[package]]
 name = "tomli"
