@@ -1,7 +1,7 @@
 [tool.poetry]
 name        = "poetry-plugin-taskipy"
 version     = "0.1.0"
-description = "Poetry Plugin for Taskipy"
+description = "Poetry plugin for taskipy"
 authors     = ["Taskipy Team"]
 license     = "MIT"
 readme      = "README.md"
@@ -13,7 +13,7 @@ poetry  = "^1.4.2"
 taskipy = { git = "https://github.com/taskipy/taskipy.git", branch = "feature/gh-32/add-poetry-plugin" }
 
 [tool.poetry.group.test.dependencies]
-pytest = "^7.3.1"
+pytest     = "^7.3.1"
 pytest-cov = "^4.0.0"
 
 [tool.poetry.group.lint.dependencies]
