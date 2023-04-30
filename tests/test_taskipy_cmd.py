@@ -5,7 +5,6 @@ to be an exhaustive test suite for the taskipy CLI itself.
 """
 from tests.utils import as_cwd
 
-
 PYPROJECT_CONTENT = """\
 [tool.poetry]
 name = "taskipy"

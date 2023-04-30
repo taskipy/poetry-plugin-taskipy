@@ -1,6 +1,5 @@
 import contextlib
 import os
-import io
 import pathlib
 from typing import Iterator
 

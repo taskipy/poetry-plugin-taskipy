@@ -1,5 +1,5 @@
-import uuid
 import subprocess
+import uuid
 from pathlib import Path
 from typing import Callable
 
