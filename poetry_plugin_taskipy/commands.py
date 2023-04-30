@@ -7,7 +7,7 @@ from taskipy import cli as taskipy_cli
 
 class TaskipyCommand(Command):
     name = "task"
-    description = "taskipy - the complementary task runner for python"
+    description = "Run a taskipy task."
     options = [option("list", "l", "Show list of available tasks.")]
     arguments = [
         argument("name", "Name of the task.", optional=True),
