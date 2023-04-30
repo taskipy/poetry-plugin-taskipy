@@ -1,4 +1,4 @@
-# Poetry Plugin for Taskipy
+# Poetry plugin for taskipy
 
 This package is a plugin for the Poetry CLI that directly integrates [taskipy](https://github.com/taskipy/taskipy)
 into it. With this plugin installed, you may then use a `task` subcommand on the Poetry
@@ -31,4 +31,37 @@ If you installed Poetry via Pip, you can install the plugin in that same environ
 
 ```
 $ pip install poetry-plugin-taskipy
+```
+
+## Usage
+
+Once you've installed the taskipy poetry plugin, you'll now see a `task` subcommand on the base `poetry` CLI.
+
+```
+$ poetry
+...
+
+Available commands:
+    ...
+    task               Run a taskipy task.
+    ...
+```
+
+
+If we assume the following basic `pyproject.toml` file in the current directory or a parent directory:
+
+```toml
+[tool.poetry]
+name = "project"
+version = "0.1.0"
+
+[tool.taskipy.tasks]
+test_echo = "echo 'test'"
+```
+
+We may then run:
+
+```
+$ poetry task test_echo
+test
 ```
