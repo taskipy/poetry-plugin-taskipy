@@ -65,3 +65,5 @@ We may then run:
 $ poetry task test_echo
 test
 ```
+
+For more information, see the [taskipy documentation](https://github.com/taskipy/taskipy/blob/master/README.md).
