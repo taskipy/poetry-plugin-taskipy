@@ -5,12 +5,23 @@ description = "Poetry plugin for taskipy"
 authors     = ["Taskipy Team"]
 license     = "MIT"
 readme      = "README.md"
+keywords    = ["tasks", "task runner", "development", "poetry", "plugin"]
+classifiers = [
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Software Development :: Build Tools",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
 packages    = [{ include = "poetry_plugin_taskipy" }]
 
 [tool.poetry.dependencies]
 python  = "^3.7"
 poetry  = "^1.4.2"
-taskipy = { git = "https://github.com/taskipy/taskipy.git", branch = "master" }
+taskipy = "^1.11.0"
 
 [tool.poetry.group.test.dependencies]
 pytest     = "^7.3.1"
