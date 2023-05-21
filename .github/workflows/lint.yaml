@@ -20,7 +20,7 @@ jobs:
           cache: 'poetry'
 
       - name: Install dependencies
-        run: poetry install --without test
+        run: poetry install
 
       - name: Run linters
         run: poetry run task lint
