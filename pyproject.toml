@@ -1,6 +1,6 @@
 [tool.poetry]
 name        = "poetry-plugin-taskipy"
-version     = "0.1.0"
+version     = "1.0.0"
 description = "Poetry plugin for taskipy"
 authors     = ["Taskipy Team"]
 license     = "MIT"
@@ -50,6 +50,16 @@ black {module_dir} {tests_dir} \
 """
 lint_analyze = "flake8 {module_dir} {tests_dir}"
 lint_types = "mypy {module_dir} {tests_dir}"
+
+pre_publish = "task test"
+publish = { cmd = "poetry publish --build", help = "publishes taskipy to PyPI as is. do not use directly" }
+post_publish = "task make_release_commit"
+
+make_release_commit = { cmd = "python ./.hooks/make_release_commit.py", help = "creates a tagged commit for the release. do not use directly" }
+
+publish_patch = { cmd = "poetry version patch && task publish", help = "publishes a patch version, that has only fixes but no new features (x.x.PATCH)" }
+
+publish_minor = { cmd = "poetry version minor && task publish", help = "publishes a minor version, which has new fetures (x.MINOR.x)" }
 
 [tool.taskipy.settings]
 use_vars = true
