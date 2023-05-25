@@ -2,6 +2,7 @@
 name        = "poetry-plugin-taskipy"
 version     = "1.0.0"
 description = "Poetry plugin for taskipy"
+repository = "https://github.com/taskipy/poetry-plugin-taskipy"
 authors     = ["Taskipy Team"]
 license     = "MIT"
 readme      = "README.md"
