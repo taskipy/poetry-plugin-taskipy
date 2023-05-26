@@ -11,7 +11,7 @@ def create_release_commit():
     version = pyproject["tool"]["poetry"]["version"]
 
     p = subprocess.Popen(
-        f'git add . && git commit -m "Release version {version}" && git tag -a "{version}" -m "Release version {version}" && git push && git push --tags',
+        f'git add . && git commit --allow-empty -m "Release version {version}" && git tag -a "{version}" -m "Release version {version}" && git push && git push --tags',
         shell=True,
         cwd=cwd,
     )
